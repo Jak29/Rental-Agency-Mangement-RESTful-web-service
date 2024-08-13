@@ -1,0 +1,25 @@
+type Property{
+    propertyId: ID,
+    propertyAddress: String,
+    propertyEircode: String,
+    propertyCapacity: Int,
+    propertyRentalCost: Int,
+    tenants: [Tenant]
+}
+
+type Tenant{
+    tenantId: ID,
+    tenantName: String,
+    tenantEmail: String,
+    tenantPhoneNumber: String
+}
+
+type Query{
+    properties: [Property]
+    findProperty(id: Int): Property
+}
+
+type Mutation{
+    createTenant(name: String, email: String, phoneNumber: String, property: Int):Tenant
+    deleteProperty(id: Int): Boolean
+}
